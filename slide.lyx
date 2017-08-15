@@ -10,6 +10,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage{lmodern}
+\usepackage{bxdpx-beamer}
 \usepackage{pxjahyper}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 
