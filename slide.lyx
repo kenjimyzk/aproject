@@ -415,7 +415,7 @@ opts_chunk$set(echo=FALSE, message =FALSE,warnings=FALSE,dev="cairo_pdf")
 
 \begin_layout Plain Layout
 
-read_chunk(lines = readLines("project.R", encoding = "UTF-8"))
+read_chunk(lines = readLines("aproject.R", encoding = "UTF-8"))
 \end_layout
 
 \begin_layout Plain Layout
@@ -1390,7 +1390,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "project"
+bibfiles "aproject"
 options "jeconunicode"
 
 \end_inset
