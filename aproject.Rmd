@@ -1,0 +1,106 @@
+---
+title: "R Notebook"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r setup, echo=FALSE}
+if(.Platform$OS.type == "windows") {
+	Sys.setlocale("LC_ALL","Japanese") 
+} else {
+	Sys.setlocale(locale="ja_JP.UTF-8")
+}
+library(knitr)
+opts_chunk$set(message =FALSE,warnings=FALSE)
+library(extrafont) 
+loadfonts(quiet=TRUE) 
+```
+
+
+分析をする.
+```{r analysis}
+library(xtable)
+x=runif(100)
+y=2+3*x+rnorm(100)
+result <- lm(y~x)
+```
+
+結果を表示する.
+```{r summary}
+summary(result)
+```
+
+latex形式で表を表示する.
+```{r tab1}
+print(xtable(result), type="latex",floating=FALSE)
+```
+
+html形式で表を表示する.
+```{r, results='asis'}
+print(xtable(result), type="html")
+```
+
+
+表を保存する.
+```{r}
+print(xtable(result), type="latex", file="tab1.tex", floating=FALSE)
+```
+
+
+latex形式で日本語がふくまれる表を表示する.
+```{r tab2}
+tab <- summary(cars)
+colnames(tab) <- c("スピード","距離")
+print(xtable(tab), type="latex",floating=FALSE)
+```
+
+html形式で表を表示する.
+```{r, results='asis'}
+print(xtable(tab), type="html")
+```
+
+表を保存する.
+```{r}
+print(xtable(tab), type="latex", file="tab2.tex", floating=FALSE)
+if(.Platform$OS.type == "windows") {
+  texfile="tab2.tex"
+  fout<-file(texfile,encoding = "UTF8")
+  writeLines(iconv(readLines(texfile), from = "SJIS", to = "UTF8"),fout)
+  close(fout)
+  }
+
+```
+
+
+図を表示する.
+```{r fig1}
+plot(x,y)
+abline(result)
+```
+
+図を保存する.
+```{r}
+cairo_pdf("fig1.pdf", width=7, height=5)
+par(mar=c(5,4,1,2))
+plot(x,y)
+abline(result)
+dev.off()
+```
+
+日本語がふくまれる図を表示する.
+```{r fig2}
+par(family="IPAexGothic")
+curve(dnorm(x),xlim=c(-3,3),main="正規分布")
+```
+
+図を保存する.
+```{r}
+cairo_pdf("fig2.pdf", width=7, height=5)
+par(mar=c(5,4,1,2))
+par(family="IPAexGothic")
+curve(dnorm(x),xlim=c(-3,3),main="正規分布")
+dev.off()
+```
+
+
