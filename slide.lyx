@@ -10,6 +10,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage{lmodern}
+\usepackage[prefernoncjk]{pxcjkcat}
+\cjkcategory{sym18}{cjk} 
 \usepackage{bxdpx-beamer}
 \usepackage{pxjahyper}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
