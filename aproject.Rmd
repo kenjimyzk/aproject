@@ -31,6 +31,13 @@ result <- lm(y~x)
 summary(result)
 ```
 
+数式で表記する.
+```{r equation,results='asis'}
+b<-coef(result)
+cat(sprintf("$$\\hat{y} = %.02f + %.02f x$$", b[1], b[2]))
+```
+
+
 latex形式で表を表示する.
 ```{r tab1}
 print(xtable(result), type="latex",floating=FALSE)
@@ -69,7 +76,6 @@ if(.Platform$OS.type == "windows") {
   writeLines(iconv(readLines(texfile), from = "SJIS", to = "UTF8"),fout)
   close(fout)
   }
-
 ```
 
 
