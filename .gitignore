@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 *.lyx~
+*.tex
+*.R
+*.pdf
+*.html
