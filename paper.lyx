@@ -6,6 +6,8 @@
 \origin unavailable
 \textclass jsarticle
 \begin_preamble
+\usepackage[prefernoncjk]{pxcjkcat}
+\cjkcategory{sym18}{cjk} 
 \usepackage{hyperref}
 \usepackage{pxjahyper}
 \end_preamble
@@ -220,6 +222,43 @@ status open
 \end_layout
 
 \begin_layout Standard
+ 回帰係数は
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(result$coefficient[2],2)}
+\end_layout
+
+\end_inset
+
+である.
+ 数式で表すと以下のとおりである.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<equation, results='asis'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 結果を表
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -236,20 +275,6 @@ reference "tab2"
 \end_inset
 
 にまとめられる.
- 回帰係数は
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{result$coefficient[2]}
-\end_layout
-
-\end_inset
-
-である.
  結果は図
 \begin_inset CommandInset ref
 LatexCommand ref
